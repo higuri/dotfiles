@@ -1,0 +1,19 @@
+# .screenrc
+
+startup_message off
+# status line
+# hardstatus lastline "[%02c] %`%-w%{=b bw}%n %t%{-}%+w"
+shelltitle "$|bash"
+# no Wuff
+vbell off
+
+# command key
+escape ^jJ
+
+# key binds
+bind ^j next
+bind ^k prev
+bind ^n screen
+bind ^l windows
+bind ^u copy
+bind ^o paste .
