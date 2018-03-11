@@ -1,13 +1,19 @@
-#!/usr/bash
+#!/bin/bash
 
-# Backup
+# Backup & Remove.
 pushd ~ > /dev/null
-cp .bashrc ".bashrc_backup_$(date +%Y%m%d)"
-cp .vimrc ".vimrc_backup_$(date +%Y%m%d)"
-cp .screenrc ".screenrc_backup_$(date +%Y%m%d)"
+if [ -f .bashrc ]; then
+    mv .bashrc ".bashrc~$(date +%Y%m%d)"
+fi
+if [ -f .vimrc ]; then
+    mv .vimrc ".vimrc~$(date +%Y%m%d)"
+fi
+if [ -f .screenrc ]; then
+    mv .screenrc ".screenrc~$(date +%Y%m%d)"
+fi
 popd > /dev/null
 
-# Install
-cp .bashrc ~
-cp .screenrc ~
-cp .vimrc ~
+# Install (Create symlinks).
+ln -sf ~/dotfiles/.bashrc ~/.bashrc
+ln -sf ~/dotfiles/.screenrc ~/.screenrc 
+ln -sf ~/dotfiles/.vimrc ~/.vimrc 

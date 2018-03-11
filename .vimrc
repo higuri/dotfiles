@@ -19,7 +19,11 @@ set ambiwidth=double
 " check current dir -> :pwd 
 set autochdir
 " location of temporary file(.swp)
-set directory=~/tmp/
+if !isdirectory($HOME.'/.vim_backup')
+  call mkdir($HOME.'/.vim_backup', 'p')
+endif
+set directory=~/.vim_backup
+set backupdir=~/.vim_backup
 " share clipboar of system.
 " TODO
 " set clipboard=unnamed
@@ -36,16 +40,6 @@ set laststatus=2
 " %L: num of lines
 " %l,%c,%P: current position
 set statusline=%F%m%=\ %r%h%w%y%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}[LEN=%L]\ %l,%c\ %P
-
-" symbol word highlight
-syntax on
-" highlight(coloring) theme
-" favorites : desert, slate, torte, ron
-" You can change each keyword setting by highlight command(:help mysyntax)
-" and refer color image by :source $VIMRUNTIME/syntax/colortest.vim
-colorscheme slate
-highlight Statement ctermfg=darkmagenta
-highlight Comment ctermfg=darkcyan
 
 " show number line
 set number
@@ -76,35 +70,49 @@ set smartcase
 "   :BundleSearch(!) foo - search(or refresh cache first) for foo
 "   :BundleClean(!)      - confirm(or auto-approve) removal of unused bundles
 "
+if !isdirectory($HOME.'/.vim/bundle/vundle')
+  silent !git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+endif
 filetype off
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 " let Vundle manage Vundle
-Bundle 'gmarik/vundle'
+Plugin 'gmarik/vundle'
 " --- My Bundles here ---
 " surround.vim : Delete/change/add parentheses/quotes/XML-tags/much more with ease
-Bundle 'tpope/vim-surround'
+Plugin 'tpope/vim-surround'
 " The NERD Commenter : A plugin that allows for easy commenting of code for many filetypes. 
-Bundle 'scrooloose/nerdcommenter'
+Plugin 'scrooloose/nerdcommenter'
 " matrix.vim : Matrix screensaver for VIM
-Bundle 'uguu-org/vim-matrix-screensaver'
+Plugin 'uguu-org/vim-matrix-screensaver'
 " YankRing.vim : Maintains a history of previous yanks, changes and deletes
-Bundle 'YankRing.vim'
+Plugin 'YankRing.vim'
 " Conque Shell : Run interactive commands inside a Vim buffer 
-" Bundle 'Conque-Shell'
-Bundle 'carlobaldassi/ConqueTerm'
-" pythonhelper : Displays Python class, method or function the cursor is in on the status line 
-Bundle 'pythonhelper'
+" Plugin 'Conque-Shell'
+Plugin 'carlobaldassi/ConqueTerm'
 " snipMate : TextMate-style snippets for Vim 
-Bundle 'msanders/snipmate.vim'
+Plugin 'msanders/snipmate.vim'
 " camelcasemotion : Motion through CamelCaseWords and underscore_notation. 
-Bundle 'bkad/CamelCaseMotion'
-" taglist.vim : Source code browser (supports C/C++, java, perl, python, tcl, sql, php, etc)
-" Bundle 'taglist.vim'
+Plugin 'bkad/CamelCaseMotion'
+" taglist.vim : Source code browser.
+" Plugin 'taglist.vim'
 " swift.vim: swift syntax.
-Bundle 'keith/swift.vim'
+Plugin 'keith/swift.vim'
 " vim-scala: scala syntax.
-Bundle 'derekwyatt/vim-scala'
+Plugin 'derekwyatt/vim-scala'
+" vim-colors-solarized: colorscheme 'solarized'
+Plugin 'altercation/vim-colors-solarized'
+" leafgarland/typescript-vim: typescript syntax.
+Plugin 'leafgarland/typescript-vim'
+
+call vundle#end()
+
+" TODO: :PluginInstall
+" symbol word highlight
+syntax on
+set background=dark
+let g:solarized_termtrans = 1
+colorscheme solarized
 
 filetype plugin indent on
 "
@@ -167,8 +175,8 @@ let mapleader=','
 nmap <Leader>g <Esc>:vimgrep 
 nnoremap <Leader>f :FilesystemExplorer<CR>
 nnoremap <Leader>l :BufferExplorer<CR>
-nnoremap <Leader>x :bd<CR>
 nnoremap <Leader>r :execute '!' &ft ' %'<CR>
+nnoremap <Leader>x :bd<CR>
 nnoremap <Leader>t :TlistToggle<CR>
 nnoremap <Leader>d ?def\\|class\\|if\\|for\\|while<CR>:noh<CR>
 
@@ -179,7 +187,8 @@ set complete+=k
 inoremap # X#
 
 " 
-autocmd FileType c, cpp nnoremap <Leader>r :execute '!make run'<CR>
+autocmd FileType c,cpp nnoremap <Leader>r :execute '!gcc % && ./a.out'<CR>
+autocmd FileType typescript nnoremap <Leader>r :execute '!tsc % && nodejs %:r.js'<CR>
 
 " QuickFix [for vimgrep]
 autocmd QuickfixCmdPost vimgrep cw
@@ -188,5 +197,5 @@ autocmd QuickfixCmdPost vimgrep cw
 " Plugin setting
 "
 let NERDSpaceDelims = 1
-let g:yankring_history_dir = '~/tmp'
+let g:yankring_history_dir = '~/.vim_backup'
 command Sh ConqueTerm bash

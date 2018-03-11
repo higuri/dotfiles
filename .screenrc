@@ -1,6 +1,8 @@
-# .screenrc
+# screen run command
+# yhigu
 
 startup_message off
+truecolor on
 # status line
 # hardstatus lastline "[%02c] %`%-w%{=b bw}%n %t%{-}%+w"
 shelltitle "$|bash"
@@ -17,3 +19,4 @@ bind ^n screen
 bind ^l windows
 bind ^u copy
 bind ^o paste .
+
