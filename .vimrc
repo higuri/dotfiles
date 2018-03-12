@@ -1,5 +1,4 @@
-" VIM run command
-let os=substitute(system('uname'), '\n', '', '')
+" .vimrc
 
 " No-Compatible with vi
 set nocompatible
