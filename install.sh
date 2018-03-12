@@ -17,3 +17,6 @@ popd > /dev/null
 ln -sf ~/dotfiles/.bashrc ~/.bashrc
 ln -sf ~/dotfiles/.screenrc ~/.screenrc 
 ln -sf ~/dotfiles/.vimrc ~/.vimrc 
+
+# Install vim plugins (call vundle:PluginInstall).
+vim +PluginInstall +qall
