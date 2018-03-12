@@ -87,15 +87,12 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'uguu-org/vim-matrix-screensaver'
 " YankRing.vim : Maintains a history of previous yanks, changes and deletes
 Plugin 'YankRing.vim'
-" Conque Shell : Run interactive commands inside a Vim buffer 
-" Plugin 'Conque-Shell'
+" ConquerTerm : Run interactive commands inside a Vim buffer 
 Plugin 'carlobaldassi/ConqueTerm'
 " snipMate : TextMate-style snippets for Vim 
 Plugin 'msanders/snipmate.vim'
 " camelcasemotion : Motion through CamelCaseWords and underscore_notation. 
 Plugin 'bkad/CamelCaseMotion'
-" taglist.vim : Source code browser.
-" Plugin 'taglist.vim'
 " swift.vim: swift syntax.
 Plugin 'keith/swift.vim'
 " vim-scala: scala syntax.
@@ -198,4 +195,5 @@ autocmd QuickfixCmdPost vimgrep cw
 "
 let NERDSpaceDelims = 1
 let g:yankring_history_dir = '~/.vim_backup'
+call camelcasemotion#CreateMotionMappings('<leader>')
 command Sh ConqueTerm bash
