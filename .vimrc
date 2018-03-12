@@ -107,8 +107,8 @@ Plugin 'leafgarland/typescript-vim'
 
 call vundle#end()
 
-" TODO: :PluginInstall
-" symbol word highlight
+" TODO PluginInstall needed.
+" use vim-plug or dein.
 syntax on
 set background=dark
 let g:solarized_termtrans = 1
