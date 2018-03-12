@@ -60,60 +60,6 @@ set incsearch
 " hoge == HOGE but Hoge != hoge
 set ignorecase
 set smartcase
-
-"
-" Plugin manager using vundle.
-"   require - git
-"   Brief help
-"   :BundleList          - list configured bundles
-"   :BundleInstall(!)    - install(update) bundles
-"   :BundleSearch(!) foo - search(or refresh cache first) for foo
-"   :BundleClean(!)      - confirm(or auto-approve) removal of unused bundles
-"
-if !isdirectory($HOME.'/.vim/bundle/vundle')
-  silent !git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-endif
-filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" let Vundle manage Vundle
-Plugin 'gmarik/vundle'
-" --- My Bundles here ---
-" surround.vim : Delete/change/add parentheses/quotes/XML-tags/much more with ease
-Plugin 'tpope/vim-surround'
-" The NERD Commenter : A plugin that allows for easy commenting of code for many filetypes. 
-Plugin 'scrooloose/nerdcommenter'
-" matrix.vim : Matrix screensaver for VIM
-Plugin 'uguu-org/vim-matrix-screensaver'
-" YankRing.vim : Maintains a history of previous yanks, changes and deletes
-Plugin 'YankRing.vim'
-" ConquerTerm : Run interactive commands inside a Vim buffer 
-Plugin 'carlobaldassi/ConqueTerm'
-" snipMate : TextMate-style snippets for Vim 
-Plugin 'msanders/snipmate.vim'
-" camelcasemotion : Motion through CamelCaseWords and underscore_notation. 
-Plugin 'bkad/CamelCaseMotion'
-" swift.vim: swift syntax.
-Plugin 'keith/swift.vim'
-" vim-scala: scala syntax.
-Plugin 'derekwyatt/vim-scala'
-" vim-colors-solarized: colorscheme 'solarized'
-Plugin 'altercation/vim-colors-solarized'
-" leafgarland/typescript-vim: typescript syntax.
-Plugin 'leafgarland/typescript-vim'
-
-call vundle#end()
-
-" TODO PluginInstall needed.
-" use vim-plug or dein.
-syntax on
-set background=dark
-let g:solarized_termtrans = 1
-colorscheme solarized
-
-filetype plugin indent on
-"
-
 "
 " Some key-binds...
 "
@@ -177,13 +123,16 @@ nnoremap <Leader>x :bd<CR>
 nnoremap <Leader>t :TlistToggle<CR>
 nnoremap <Leader>d ?def\\|class\\|if\\|for\\|while<CR>:noh<CR>
 
+"
+" FileType setting
+"
+
 " disable automatic comment insertion
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 set omnifunc=syntaxcomplete#Complete
 set complete+=k
 inoremap # X#
 
-" 
 autocmd FileType c,cpp nnoremap <Leader>r :execute '!gcc % && ./a.out'<CR>
 autocmd FileType typescript nnoremap <Leader>r :execute '!tsc % && nodejs %:r.js'<CR>
 
@@ -191,9 +140,55 @@ autocmd FileType typescript nnoremap <Leader>r :execute '!tsc % && nodejs %:r.js
 autocmd QuickfixCmdPost vimgrep cw
 
 "
+" Plugin management with Vundle.
+"
+if !isdirectory($HOME.'/.vim/bundle/Vundle.vim')
+  silent !git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+endif
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" let Vundle manage Vundle
+Plugin 'VundleVim/Vundle.vim'
+" --- My Bundles here ---
+" surround.vim : Delete/change/add parentheses/quotes/XML-tags/much more with ease
+Plugin 'tpope/vim-surround'
+" The NERD Commenter : A plugin that allows for easy commenting of code for many filetypes. 
+Plugin 'scrooloose/nerdcommenter'
+" matrix.vim : Matrix screensaver for VIM
+Plugin 'uguu-org/vim-matrix-screensaver'
+" YankRing.vim : Maintains a history of previous yanks, changes and deletes
+Plugin 'YankRing.vim'
+" ConquerTerm : Run interactive commands inside a Vim buffer 
+Plugin 'carlobaldassi/ConqueTerm'
+" snipMate : TextMate-style snippets for Vim 
+Plugin 'msanders/snipmate.vim'
+" camelcasemotion : Motion through CamelCaseWords and underscore_notation. 
+Plugin 'bkad/CamelCaseMotion'
+" swift.vim: swift syntax.
+Plugin 'keith/swift.vim'
+" vim-scala: scala syntax.
+Plugin 'derekwyatt/vim-scala'
+" vim-colors-solarized: colorscheme 'solarized'
+Plugin 'altercation/vim-colors-solarized'
+" leafgarland/typescript-vim: typescript syntax.
+Plugin 'leafgarland/typescript-vim'
+call vundle#end()
+
+syntax on
+if isdirectory($HOME.'/.vim/bundle/vim-colors-solarized')
+  set background=dark
+  let g:solarized_termtrans = 1
+  colorscheme solarized
+endif
+filetype plugin indent on
+
+"
 " Plugin setting
 "
+if isdirectory($HOME.'/.vim/bundle/CamelCaseMotion')
+  call camelcasemotion#CreateMotionMappings('<Leader>')
+endif
 let NERDSpaceDelims = 1
 let g:yankring_history_dir = '~/.vim_backup'
-call camelcasemotion#CreateMotionMappings('<leader>')
 command Sh ConqueTerm bash
