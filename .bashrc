@@ -35,9 +35,9 @@ function yelecho { command echo -e "\033[33m$@\033[m"; }
 function grnecho { command echo -e "\033[32m$@\033[m"; }
 function redecho { command echo -e "\033[31m$@\033[m"; }
 
-function grepy { grep "$@" `find . -name "*.py"`; }
-function ghg { grep -R --exclude-dir=.hg "$@"; }
+function g { grep "$@" `find . -type f -name "*.*"`; }
 function gg { grep -R "$@"; }
+function ghg { grep -R --exclude-dir=.hg "$@"; }
 function vman { (man "$@" > ~/tmp/_man_$@.tmp) && vim ~/tmp/_man_$@.tmp && rm ~/tmp/_man_$@.tmp; }
 if [[ $OSTYPE == darwin* ]]; then
     function lsa { command ls -ltrAFG "$@"; }
@@ -49,7 +49,7 @@ else
     if [ ! -d ~/dircolors-solarized ]; then
         git clone https://github.com/seebi/dircolors-solarized
     fi
-    eval `dircolors dircolors-solarized/dircolors.256dark`
+    eval `dircolors ~/dircolors-solarized/dircolors.256dark`
 fi
 
 # cheet sheet...
