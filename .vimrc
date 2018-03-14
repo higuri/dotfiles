@@ -110,7 +110,8 @@ autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "norm
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 " <Leader>r
 autocmd FileType c,cpp nnoremap <Leader>r :execute '!gcc % && ./a.out'<CR>
-autocmd FileType typescript nnoremap <Leader>r :execute '!tsc % && nodejs %:r.js'<CR>
+autocmd FileType javascript nnoremap <Leader>r :execute '!node %'<CR>
+autocmd FileType typescript nnoremap <Leader>r :execute '!tsc % && node %:r.js'<CR>
 
 " QuickFix [for vimgrep]
 autocmd QuickfixCmdPost vimgrep cw
