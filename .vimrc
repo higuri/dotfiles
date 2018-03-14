@@ -127,6 +127,8 @@ Plugin 'carlobaldassi/ConqueTerm'
 Plugin 'msanders/snipmate.vim'
 " camelcasemotion : Motion through CamelCaseWords and underscore_notation. 
 Plugin 'bkad/CamelCaseMotion'
+" matchit: extended % matching for XML, HTML.
+Plugin 'tmhedberg/matchit'
 " swift.vim: swift syntax.
 Plugin 'keith/swift.vim'
 " vim-scala: scala syntax.
