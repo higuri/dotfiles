@@ -100,19 +100,6 @@ cnoremap <C-F> <Right>
 "   <C-h> back space
 cnoremap <C-v> <C-r>"
 
-"
-" FileType setting
-"
-
-" save the line position when file is closed
-autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif
-" disable automatic comment insertion
-autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
-" <Leader>r
-autocmd FileType c,cpp nnoremap <Leader>r :execute '!gcc % && ./a.out'<CR>
-autocmd FileType javascript nnoremap <Leader>r :execute '!node %'<CR>
-autocmd FileType typescript nnoremap <Leader>r :execute '!tsc % && node %:r.js'<CR>
-
 " QuickFix [for vimgrep]
 autocmd QuickfixCmdPost vimgrep cw
 
@@ -167,3 +154,19 @@ endif
 let NERDSpaceDelims = 1
 let g:yankring_history_dir = '~/.vim_backup'
 command Sh ConqueTerm bash
+
+"
+" FileType setting
+"   These settings have to be evaluated after loading plugins
+"   which declare filetypes (e.g. swift.vim, vim-scala).
+"
+
+" save the line position when file is closed
+autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif
+" disable automatic comment insertion
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+" <Leader>r
+autocmd FileType c,cpp nnoremap <Leader>r :execute '!gcc % && ./a.out'<CR>
+autocmd FileType javascript nnoremap <Leader>r :execute '!node %'<CR>
+autocmd FileType typescript nnoremap <Leader>r :execute '!tsc % && node %:r.js'<CR>
+
