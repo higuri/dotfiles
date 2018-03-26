@@ -1,20 +1,22 @@
 #!/bin/bash
 
-# Backup & Remove.
-pushd ~ > /dev/null
-if [ -f .bashrc ]; then
-    mv .bashrc ".bashrc~$(date +%Y%m%d)"
+# Backup
+if [ $# -eq 0 ] || [ $1 != "-f" ]; then
+    pushd ~ > /dev/null
+    if [ -f .bashrc ]; then
+        mv .bashrc ".bashrc~$(date +%Y%m%d)"
+    fi
+    if [ -f .zshrc ]; then
+        mv .zshrc ".zshrc~$(date +%Y%m%d)"
+    fi
+    if [ -f .vimrc ]; then
+        mv .vimrc ".vimrc~$(date +%Y%m%d)"
+    fi
+    if [ -f .screenrc ]; then
+        mv .screenrc ".screenrc~$(date +%Y%m%d)"
+    fi
+    popd > /dev/null
 fi
-if [ -f .zshrc ]; then
-    mv .zshrc ".zshrc~$(date +%Y%m%d)"
-fi
-if [ -f .vimrc ]; then
-    mv .vimrc ".vimrc~$(date +%Y%m%d)"
-fi
-if [ -f .screenrc ]; then
-    mv .screenrc ".screenrc~$(date +%Y%m%d)"
-fi
-popd > /dev/null
 
 # Install (Create symlinks).
 ln -sf ~/dotfiles/.bashrc ~/.bashrc
