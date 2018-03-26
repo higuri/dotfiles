@@ -5,6 +5,9 @@ pushd ~ > /dev/null
 if [ -f .bashrc ]; then
     mv .bashrc ".bashrc~$(date +%Y%m%d)"
 fi
+if [ -f .zshrc ]; then
+    mv .zshrc ".zshrc~$(date +%Y%m%d)"
+fi
 if [ -f .vimrc ]; then
     mv .vimrc ".vimrc~$(date +%Y%m%d)"
 fi
@@ -15,6 +18,7 @@ popd > /dev/null
 
 # Install (Create symlinks).
 ln -sf ~/dotfiles/.bashrc ~/.bashrc
+ln -sf ~/dotfiles/.zshrc ~/.zshrc
 ln -sf ~/dotfiles/.screenrc ~/.screenrc 
 ln -sf ~/dotfiles/.vimrc ~/.vimrc 
 
