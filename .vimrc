@@ -92,8 +92,9 @@ cnoremap <C-A> <Home>
 cnoremap <C-B> <Left>
 cnoremap <C-E> <End>
 cnoremap <C-F> <Right>
-"cnoremap <C-N> <Down>
-"cnoremap <C-P> <Up>
+" command line completion from history.
+cnoremap <C-N> <Down>
+cnoremap <C-P> <Up>
 " Paste at command mode
 " [tips] default keymaps
 "   <C-u> delete line 
