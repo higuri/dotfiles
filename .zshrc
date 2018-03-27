@@ -38,21 +38,21 @@ alias t='vim "+ normal Go" "+ startinsert" ~/todo.txt'
 alias gt='cd ~/tmp'
 alias te='open -a TextEdit'
 alias psa='ps -a'
-alias -g G='| grep'
 
 function g { grep "$@" `find . -type f -name "*.*"`; }
 if [[ $OSTYPE == darwin* ]]; then
-    function l { command ls -ltrAFG "$@"; }
+    function lsa { command ls -ltrAFG "$@"; }
     # abbreviated version of dircolors-solarized.
     # not so good...
     #export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
 else
-    function l { command ls -ltrAF --color=auto "$@"; }
+    function lsa { command ls -ltrAF --color=auto "$@"; }
     if [ ! -d ~/dircolors-solarized ]; then
         git clone https://github.com/seebi/dircolors-solarized
     fi
     eval `dircolors ~/dircolors-solarized/dircolors.256dark`
 fi
+alias l='lsa'
 
 # emacs-like keybind
 bindkey -e
