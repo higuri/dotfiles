@@ -129,6 +129,8 @@ Plugin 'msanders/snipmate.vim'
 Plugin 'bkad/CamelCaseMotion'
 " matchit: extended % matching for XML, HTML.
 Plugin 'tmhedberg/matchit'
+" vim-wakatime: quantify vim usage.
+Plugin 'wakatime/vim-wakatime'
 " swift.vim: swift syntax.
 Plugin 'keith/swift.vim'
 " vim-scala: scala syntax.
