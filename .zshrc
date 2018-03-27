@@ -57,12 +57,11 @@ else
     eval `dircolors ~/dircolors-solarized/dircolors.256dark`
 fi
 
-# TODO
-#bindkey '"\C-n": history-search-forward'
-#bindkey '"\C-p": history-search-backward'
-
 # emacs-like keybind
 bindkey -e
+# history completion with Ctrl-P/N
+bindkey "^P" history-beginning-search-backward
+bindkey "^N" history-beginning-search-forward
 
 # cheet sheet...
 # screen:
