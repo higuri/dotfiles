@@ -5,7 +5,7 @@ export LANG=ja_JP.UTF-8
 # EDITOR
 export EDITOR=vim
 # PROMPT
-export PROMPT='[%F{green}%~%f]
+export PROMPT='[%F{yellow}%~%f]
 $ '
 
 # Enable tab completion
@@ -20,37 +20,34 @@ HISTSIZE=1000000
 SAVEHIST=1000000
 
 # setopt ...
-setopt auto_pushd
-setopt pushd_ignore_dups
-setopt print_eight_bit
 setopt no_beep
 setopt no_flow_control
 setopt interactive_comments
+setopt print_eight_bit
 
 # Define aliases and functions
 alias ..='cd ..'
 alias ...='cd .. && cd ..'
 alias ....='cd .. && cd .. && cd ..'
-alias psa='ps -a'
+alias a='date "+%Y/%m/%d %H:%M:%S" >> ~/log.txt && vim "+ normal Go" "+ startinsert" ~/log.txt'
 alias b='cd -'
 alias e='vim'
-alias r='vim -R'
-alias gt='cd ~/tmp'
 alias o='open'
-alias a='date "+%Y/%m/%d %H:%M:%S" >> ~/log.txt && vim "+ normal Go" "+ startinsert" ~/log.txt'
+alias r='vim -R'
 alias t='vim "+ normal Go" "+ startinsert" ~/todo.txt'
+alias gt='cd ~/tmp'
 alias te='open -a TextEdit'
-alias -g L='| less'
+alias psa='ps -a'
 alias -g G='| grep'
 
 function g { grep "$@" `find . -type f -name "*.*"`; }
 if [[ $OSTYPE == darwin* ]]; then
-    function lsa { command ls -ltrAFG "$@"; }
+    function l { command ls -ltrAFG "$@"; }
     # abbreviated version of dircolors-solarized.
     # not so good...
     #export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
 else
-    function lsa { command ls -ltrAF --color=auto "$@"; }
+    function l { command ls -ltrAF --color=auto "$@"; }
     if [ ! -d ~/dircolors-solarized ]; then
         git clone https://github.com/seebi/dircolors-solarized
     fi
