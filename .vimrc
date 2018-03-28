@@ -67,6 +67,8 @@ nnoremap <Leader>f :FilesystemExplorer<CR>
 nnoremap <Leader>l :BufferExplorer<CR>
 nnoremap <Leader>r :execute '!' &ft ' %'<CR>
 nnoremap <Leader>x :bd<CR>
+" correct indent pasted character right before
+nnoremap <Leader>= =`]
 
 " string substitution with yanked. repeat by 'n'.
 nnoremap cyw ce<C-r>0<ESC>:let@/=@1<CR>:noh<CR>
@@ -132,6 +134,8 @@ Plugin 'bkad/CamelCaseMotion'
 Plugin 'tmhedberg/matchit'
 " vim-wakatime: quantify vim usage.
 Plugin 'wakatime/vim-wakatime'
+" vim-make: ':Make' runs closest Makefile.
+Plugin 'vshih/vim-make'
 " swift.vim: swift syntax.
 Plugin 'keith/swift.vim'
 " vim-scala: scala syntax.
@@ -174,4 +178,3 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 autocmd FileType c,cpp nnoremap <Leader>r :execute '!gcc % && ./a.out'<CR>
 autocmd FileType javascript nnoremap <Leader>r :execute '!node %'<CR>
 autocmd FileType typescript nnoremap <Leader>r :execute '!tsc % && node %:r.js'<CR>
-
