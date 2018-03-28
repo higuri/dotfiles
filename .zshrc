@@ -36,8 +36,10 @@ alias o='open'
 alias r='vim -R'
 alias t='vim "+ normal Go" "+ startinsert" ~/todo.txt'
 alias gt='cd ~/tmp'
-alias te='open -a TextEdit'
 alias psa='ps -a'
+if [[ $OSTYPE == darwin* ]]; then
+    alias te='open -a TextEdit'
+fi
 
 function g { grep "$@" `find . -type f -name "*.*"`; }
 if [[ $OSTYPE == darwin* ]]; then
