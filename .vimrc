@@ -135,7 +135,7 @@ Plugin 'tmhedberg/matchit'
 " vim-wakatime: quantify vim usage.
 Plugin 'wakatime/vim-wakatime'
 " vim-make: ':Make' runs closest Makefile.
-Plugin 'vshih/vim-make'
+Plugin 'higuri/vim-make'
 " swift.vim: swift syntax.
 Plugin 'keith/swift.vim'
 " vim-scala: scala syntax.
