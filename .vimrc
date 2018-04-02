@@ -18,7 +18,7 @@ set ambiwidth=double
 set autochdir
 " location of temporary file(.swp)
 if !isdirectory($HOME.'/.vim_backup')
-  call mkdir($HOME.'/.vim_backup', 'p')
+    call mkdir($HOME.'/.vim_backup', 'p')
 endif
 set directory=~/.vim_backup
 set backupdir=~/.vim_backup
@@ -45,15 +45,10 @@ set incsearch
 " hoge == HOGE but Hoge != hoge
 set ignorecase
 set smartcase
-
-" insert indent at newline
+" indentation.
 set autoindent
 set smartindent
-" tab settings
 set expandtab
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
 
 "
 " key-map
@@ -110,7 +105,7 @@ autocmd QuickfixCmdPost vimgrep cw
 " Plugin management with Vundle.
 "
 if !isdirectory($HOME.'/.vim/bundle/Vundle.vim')
-  silent !git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+    silent !git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 endif
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -148,9 +143,9 @@ call vundle#end()
 
 syntax on
 if isdirectory($HOME.'/.vim/bundle/vim-colors-solarized')
-  set background=dark
-  let g:solarized_termtrans = 1
-  colorscheme solarized
+    set background=dark
+    let g:solarized_termtrans = 1
+    colorscheme solarized
 endif
 filetype plugin indent on
 
@@ -158,7 +153,7 @@ filetype plugin indent on
 " Plugin setting
 "
 if isdirectory($HOME.'/.vim/bundle/CamelCaseMotion')
-  call camelcasemotion#CreateMotionMappings('<Leader>')
+    call camelcasemotion#CreateMotionMappings('<Leader>')
 endif
 let NERDSpaceDelims = 1
 let g:yankring_history_dir = '~/.vim_backup'
@@ -174,8 +169,9 @@ command Sh ConqueTerm bash
 autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif
 " disable automatic comment insertion
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+autocmd FileType * setlocal tabstop=4 softtabstop=4 shiftwidth=4
+autocmd FileType xml,html setlocal tabstop=2 softtabstop=2 shiftwidth=2
 " <Leader>r
 autocmd FileType c,cpp nnoremap <Leader>r :execute '!gcc % && ./a.out'<CR>
-autocmd FileType xml,html set tabstop=2 softtabstop=2 shiftwidth=2
 autocmd FileType javascript nnoremap <Leader>r :execute '!node %'<CR>
 autocmd FileType typescript nnoremap <Leader>r :execute '!tsc % && node %:r.js'<CR>
