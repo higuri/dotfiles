@@ -176,5 +176,6 @@ autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "norm
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 " <Leader>r
 autocmd FileType c,cpp nnoremap <Leader>r :execute '!gcc % && ./a.out'<CR>
+autocmd FileType xml,html set tabstop=2 softtabstop=2 shiftwidth=2
 autocmd FileType javascript nnoremap <Leader>r :execute '!node %'<CR>
 autocmd FileType typescript nnoremap <Leader>r :execute '!tsc % && node %:r.js'<CR>
