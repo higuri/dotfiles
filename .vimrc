@@ -49,6 +49,8 @@ set smartcase
 set autoindent
 set smartindent
 set expandtab
+" enable backspace over autoindent and line break
+set backspace=indent,eol,start
 
 "
 " key-map
@@ -171,7 +173,7 @@ autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "norm
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 autocmd FileType * setlocal tabstop=4 softtabstop=4 shiftwidth=4
 autocmd FileType xml,html setlocal tabstop=2 softtabstop=2 shiftwidth=2
-" <Leader>r
+" <Leader>r FIXME
 autocmd FileType c,cpp nnoremap <Leader>r :execute '!gcc % && ./a.out'<CR>
 autocmd FileType javascript nnoremap <Leader>r :execute '!node %'<CR>
 autocmd FileType typescript nnoremap <Leader>r :execute '!tsc % && node %:r.js'<CR>
