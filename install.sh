@@ -12,8 +12,8 @@ if [ $# -eq 0 ] || [ $1 != "-f" ]; then
     if [ -f .vimrc ]; then
         mv .vimrc ".vimrc~$(date +%Y%m%d)"
     fi
-    if [ -f .screenrc ]; then
-        mv .screenrc ".screenrc~$(date +%Y%m%d)"
+    if [ -f .tmux.conf ]; then
+        mv .tmux.conf ".tmux.conf~$(date +%Y%m%d)"
     fi
     popd > /dev/null
 fi
@@ -21,7 +21,7 @@ fi
 # Install (Create symlinks).
 ln -sf ~/dotfiles/.bashrc ~/.bashrc
 ln -sf ~/dotfiles/.zshrc ~/.zshrc
-ln -sf ~/dotfiles/.screenrc ~/.screenrc 
+ln -sf ~/dotfiles/.tmux.conf ~/.tmux.conf 
 ln -sf ~/dotfiles/.vimrc ~/.vimrc 
 
 # Install vim plugins (call vundle:PluginInstall).
