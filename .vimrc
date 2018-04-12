@@ -141,6 +141,8 @@ Plugin 'derekwyatt/vim-scala'
 Plugin 'altercation/vim-colors-solarized'
 " leafgarland/typescript-vim: typescript syntax.
 Plugin 'leafgarland/typescript-vim'
+" vim-tsc: tsc --watch in vim
+Plugin 'higuri/vim-tsc'
 call vundle#end()
 
 syntax on
