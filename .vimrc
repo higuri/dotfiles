@@ -64,6 +64,8 @@ nnoremap <Leader>f :FilesystemExplorer<CR>
 nnoremap <Leader>l :BufferExplorer<CR>
 nnoremap <Leader>r :execute '!' &ft ' %'<CR>
 nnoremap <Leader>x :bd<CR>
+nnoremap <Leader>n :new 
+nnoremap <Leader>v :vnew 
 " correct indent pasted character right before
 nnoremap <Leader>= =`]
 
@@ -143,6 +145,7 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'leafgarland/typescript-vim'
 " vim-tsc: tsc --watch in vim
 Plugin 'higuri/vim-tsc'
+Plugin 'higuri/py3plug.vim'
 call vundle#end()
 
 syntax on
