@@ -126,8 +126,6 @@ Plugin 'tpope/vim-surround'
 Plugin 'scrooloose/nerdcommenter'
 " YankRing.vim : Maintains a history of previous yanks, changes and deletes
 Plugin 'YankRing.vim'
-" ConquerTerm : Run interactive commands inside a Vim buffer 
-Plugin 'carlobaldassi/ConqueTerm'
 " snipMate : TextMate-style snippets for Vim 
 Plugin 'msanders/snipmate.vim'
 " camelcasemotion : Motion through CamelCaseWords and underscore_notation. 
@@ -168,7 +166,6 @@ if isdirectory($HOME.'/.vim/bundle/CamelCaseMotion')
 endif
 let NERDSpaceDelims = 1
 let g:yankring_history_dir = &directory
-command Sh ConqueTerm bash
 
 "
 " FileType setting
