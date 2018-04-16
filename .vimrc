@@ -134,10 +134,14 @@ Plugin 'msanders/snipmate.vim'
 Plugin 'bkad/CamelCaseMotion'
 " matchit: extended % matching for XML, HTML.
 Plugin 'tmhedberg/matchit'
+" tmux-navigator: tmux pane swithing with awareness of Vim splits.
+Plugin 'christoomey/vim-tmux-navigator'
 " vim-wakatime: quantify vim usage.
 Plugin 'wakatime/vim-wakatime'
 " vim-make: ':Make' runs closest Makefile.
 Plugin 'higuri/vim-make'
+" tscwatch.vim: tsc --watch in vim
+Plugin 'higuri/tscwatch.vim'
 " swift.vim: swift syntax.
 Plugin 'keith/swift.vim'
 " vim-scala: scala syntax.
@@ -146,8 +150,6 @@ Plugin 'derekwyatt/vim-scala'
 Plugin 'altercation/vim-colors-solarized'
 " leafgarland/typescript-vim: typescript syntax.
 Plugin 'leafgarland/typescript-vim'
-" tscwatch.vim: tsc --watch in vim
-Plugin 'higuri/tscwatch.vim'
 call vundle#end()
 
 syntax on
