@@ -16,12 +16,12 @@ set ambiwidth=double
 " autochange current directory according to current buffer
 " [tips] check current dir -> :pwd 
 set autochdir
-" location of temporary file(.swp)
-if !isdirectory($HOME.'/.vim_backup')
-    call mkdir($HOME.'/.vim_backup', 'p')
+" location of swap & backup files.
+set directory=~/.vimdir
+set backupdir=~/.vimdir
+if !isdirectory(&directory)
+    silent call mkdir(&directory, 'p')
 endif
-set directory=~/.vim_backup
-set backupdir=~/.vim_backup
 
 " statusline
 set laststatus=2
@@ -60,14 +60,17 @@ set backspace=indent,eol,start
 let mapleader=','
 
 nmap <Leader>g <Esc>:vimgrep 
-nnoremap <Leader>f :FilesystemExplorer<CR>
-nnoremap <Leader>l :BufferExplorer<CR>
-nnoremap <Leader>r :execute '!' &ft ' %'<CR>
-nnoremap <Leader>x :bd<CR>
 nnoremap <Leader>n :new 
 nnoremap <Leader>v :vnew 
+nnoremap <Leader>x :bd<CR>
+nnoremap <Leader>r :execute '!'.&ft.' %'<CR>
 " correct indent pasted character right before
 nnoremap <Leader>= =`]
+" yank & paste between Vim instances
+" TODO: use variable.
+vnoremap <silent> <Leader>y :w! ~/.vimdir/.vimyank<CR>
+nnoremap <silent> <Leader>y :.w! ~/.vimdir/.vimyank<CR>
+nnoremap <silent> <Leader>p :r ~/.vimdir/.vimyank<CR>
 
 " string substitution with yanked. repeat by 'n'.
 nnoremap cyw ce<C-r>0<ESC>:let@/=@1<CR>:noh<CR>
@@ -143,9 +146,8 @@ Plugin 'derekwyatt/vim-scala'
 Plugin 'altercation/vim-colors-solarized'
 " leafgarland/typescript-vim: typescript syntax.
 Plugin 'leafgarland/typescript-vim'
-" vim-tsc: tsc --watch in vim
-Plugin 'higuri/vim-tsc'
-Plugin 'higuri/py3plug.vim'
+" tscwatch.vim: tsc --watch in vim
+Plugin 'higuri/tscwatch.vim'
 call vundle#end()
 
 syntax on
@@ -163,7 +165,7 @@ if isdirectory($HOME.'/.vim/bundle/CamelCaseMotion')
     call camelcasemotion#CreateMotionMappings('<Leader>')
 endif
 let NERDSpaceDelims = 1
-let g:yankring_history_dir = '~/.vim_backup'
+let g:yankring_history_dir = &directory
 command Sh ConqueTerm bash
 
 "
