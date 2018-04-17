@@ -117,9 +117,11 @@ endif
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-" let Vundle manage Vundle
 Plugin 'VundleVim/Vundle.vim'
-" --- My Bundles here ---
+" --- Bundles to be installed ---
+" fzf.vim: fuzzy finder in Vim
+set rtp+=/usr/local/opt/fzf
+Plugin 'junegunn/fzf.vim'
 " surround.vim : Delete/change/add parentheses/quotes/XML-tags/much more with ease
 Plugin 'tpope/vim-surround'
 " The NERD Commenter : A plugin that allows for easy commenting of code for many filetypes. 
@@ -166,6 +168,9 @@ if isdirectory($HOME.'/.vim/bundle/CamelCaseMotion')
 endif
 let NERDSpaceDelims = 1
 let g:yankring_history_dir = &directory
+" fzf.vim
+nnoremap <Leader>b :Buffers<CR>
+nnoremap ; :Files 
 
 "
 " FileType setting

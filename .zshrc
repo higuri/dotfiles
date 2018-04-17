@@ -64,9 +64,6 @@ bindkey -e
 bindkey "^P" history-beginning-search-backward
 bindkey "^N" history-beginning-search-forward
 
-# cheet sheet...
-# screen:
-#   vertical split: <c-j> + S
-#   horizontal split: <c-j> + |
-#   -> create new screen: <c-j> + <c-n>
+# fzf: https://github.com/junegunn/fzf
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 # vim:set ft=zsh :

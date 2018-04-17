@@ -52,8 +52,5 @@ else
     eval `dircolors ~/dircolors-solarized/dircolors.256dark`
 fi
 
-# cheet sheet...
-# screen:
-#   vertical split: <c-j> + S
-#   horizontal split: <c-j> + |
-#   -> create new screen: <c-j> + <c-n>
+# fzf: https://github.com/junegunn/fzf
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
