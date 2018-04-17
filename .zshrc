@@ -2,11 +2,13 @@
 
 # LANG
 export LANG=ja_JP.UTF-8
-# EDITOR
-export EDITOR=vim
-# PROMPT
+# PROMPT (multi-lines)
 export PROMPT='[%F{yellow}%~%f]
 $ '
+# EDITOR
+export EDITOR=vim
+# MANPAGER
+export MANPAGER="col -b -x|vim -R -c 'set ft=man nolist nomod noma' -"
 
 # Enable tab completion
 autoload -Uz compinit
