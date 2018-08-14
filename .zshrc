@@ -5,10 +5,10 @@ export LANG=ja_JP.UTF-8
 # PROMPT (multi-lines)
 export PROMPT='[%F{yellow}%~%f]
 $ '
+# PATH
+export PATH=$PATH:$HOME/npm_global/bin/
 # EDITOR
 export EDITOR=vim
-# MANPAGER
-export MANPAGER="col -b -x|vim -R -c 'set ft=man nolist nomod noma' -"
 
 # Enable tab completion
 autoload -Uz compinit
@@ -66,4 +66,3 @@ bindkey "^N" history-beginning-search-forward
 
 # fzf: https://github.com/junegunn/fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-# vim:set ft=zsh :

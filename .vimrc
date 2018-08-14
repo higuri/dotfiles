@@ -8,7 +8,7 @@ set hidden
 set fileencoding=utf-8
 set fileencodings=utf-8,cp932,euc-jp,iso-2022-jp
 set fileformat=dos
-set fileformats=dos,mac,unix
+set fileformats=dos,unix,mac
 " representation characer encoding
 set encoding=utf-8
 " display double byte character correctly.
@@ -51,6 +51,8 @@ set smartindent
 set expandtab
 " enable backspace over autoindent and line break
 set backspace=indent,eol,start
+" enable clipboard
+set clipboard=unnamed
 
 "
 " key-map
@@ -120,7 +122,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 " --- Bundles to be installed ---
 " fzf.vim: fuzzy finder in Vim
-set rtp+=/usr/local/opt/fzf
+set rtp+=~/.fzf/
 Plugin 'junegunn/fzf.vim'
 " surround.vim : Delete/change/add parentheses/quotes/XML-tags/much more with ease
 Plugin 'tpope/vim-surround'
@@ -136,6 +138,8 @@ Plugin 'bkad/CamelCaseMotion'
 Plugin 'tmhedberg/matchit'
 " tmux-navigator: tmux pane swithing with awareness of Vim splits.
 Plugin 'christoomey/vim-tmux-navigator'
+" vim-qf: tame the quickfix window
+Plugin 'romainl/vim-qf'
 " vim-wakatime: quantify vim usage.
 Plugin 'wakatime/vim-wakatime'
 " vim-make: ':Make' runs closest Makefile.
@@ -146,6 +150,8 @@ Plugin 'higuri/tscwatch.vim'
 Plugin 'keith/swift.vim'
 " vim-scala: scala syntax.
 Plugin 'derekwyatt/vim-scala'
+" vim-vue: Syntax Highlight for Vue.js components
+Plugin 'posva/vim-vue'
 " vim-colors-solarized: colorscheme 'solarized'
 Plugin 'altercation/vim-colors-solarized'
 " leafgarland/typescript-vim: typescript syntax.
@@ -170,6 +176,7 @@ let NERDSpaceDelims = 1
 let g:yankring_history_dir = &directory
 " fzf.vim
 nnoremap <Leader>b :Buffers<CR>
+nnoremap <Leader>c :Files .<CR>
 nnoremap ; :Files 
 
 "
@@ -183,8 +190,11 @@ autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "norm
 " disable automatic comment insertion
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 autocmd FileType * setlocal tabstop=4 softtabstop=4 shiftwidth=4
-autocmd FileType xml,html setlocal tabstop=2 softtabstop=2 shiftwidth=2
+autocmd FileType xml,html,css,scss,json setlocal tabstop=2 softtabstop=2 shiftwidth=2
+autocmd FileType javascript,typescript,vue setlocal tabstop=2 softtabstop=2 shiftwidth=2
+autocmd FileType swift setlocal tabstop=2 softtabstop=2 shiftwidth=2
 " <Leader>r FIXME
 autocmd FileType c,cpp nnoremap <Leader>r :execute '!gcc % && ./a.out'<CR>
 autocmd FileType javascript nnoremap <Leader>r :execute '!node %'<CR>
 autocmd FileType typescript nnoremap <Leader>r :execute '!tsc % && node %:r.js'<CR>
+autocmd FileType vue syntax sync fromstart
