@@ -1,12 +1,12 @@
 # .zshrc
 
+# PATH
+export PATH=/usr/local/bin:$PATH:$HOME/npm_global/bin/
 # LANG
 export LANG=ja_JP.UTF-8
 # PROMPT (multi-lines)
 export PROMPT='[%F{yellow}%~%f]
 $ '
-# PATH
-export PATH=$PATH:$HOME/npm_global/bin/
 # EDITOR
 export EDITOR=vim
 
