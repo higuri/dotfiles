@@ -126,6 +126,10 @@ set rtp+=~/.fzf/
 Plugin 'junegunn/fzf.vim'
 " surround.vim : Delete/change/add parentheses/quotes/XML-tags/much more with ease
 Plugin 'tpope/vim-surround'
+" matchit: extended % matching for XML, HTML.
+Plugin 'tmhedberg/matchit'
+" vim-mkdir:  Automatically create any non-existent directories.
+Plugin 'pbrisbin/vim-mkdir'
 " The NERD Commenter : A plugin that allows for easy commenting of code for many filetypes. 
 Plugin 'scrooloose/nerdcommenter'
 " YankRing.vim : Maintains a history of previous yanks, changes and deletes
@@ -134,8 +138,6 @@ Plugin 'YankRing.vim'
 Plugin 'msanders/snipmate.vim'
 " camelcasemotion : Motion through CamelCaseWords and underscore_notation. 
 Plugin 'bkad/CamelCaseMotion'
-" matchit: extended % matching for XML, HTML.
-Plugin 'tmhedberg/matchit'
 " tmux-navigator: tmux pane swithing with awareness of Vim splits.
 Plugin 'christoomey/vim-tmux-navigator'
 " vim-qf: tame the quickfix window
