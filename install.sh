@@ -24,5 +24,4 @@ ln -sf ~/dotfiles/.zshrc ~/.zshrc
 ln -sf ~/dotfiles/.tmux.conf ~/.tmux.conf 
 ln -sf ~/dotfiles/.vimrc ~/.vimrc 
 
-# Install vim plugins (call vundle:PluginInstall).
-vim +PluginInstall +qall
+source ./install_vimplugin.sh
