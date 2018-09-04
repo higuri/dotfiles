@@ -38,6 +38,7 @@ alias o='open'
 alias r='vim -R'
 alias t='vim "+ normal Go" "+ startinsert" ~/todo.txt'
 alias gt='cd ~/tmp'
+alias gg='cd `git rev-parse --show-toplevel`'
 alias psa='ps -a'
 if [[ $OSTYPE == darwin* ]]; then
     alias te='open -a TextEdit'
