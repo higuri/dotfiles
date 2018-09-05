@@ -44,14 +44,19 @@ if [[ $OSTYPE == darwin* ]]; then
     alias te='open -a TextEdit'
 fi
 
-function g { grep "$@" `find . -type f -name "*.*"`; }
+function g { grep "$@" `find . -type f -name "*.*"` }
+function ge {
+    files=$(grep -l "$@" `find . -type f -name "*.*"`)
+    echo $files
+    vim $(echo $files | paste -s -d " " -)
+}
 if [[ $OSTYPE == darwin* ]]; then
-    function lsa { command ls -ltrAFG "$@"; }
+    function lsa { command ls -ltrAFG "$@" }
     # abbreviated version of dircolors-solarized.
     # not so good...
     #export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
 else
-    function lsa { command ls -ltrAF --color=auto "$@"; }
+    function lsa { command ls -ltrAF --color=auto "$@" }
     if [ ! -d ~/dircolors-solarized ]; then
         git clone https://github.com/seebi/dircolors-solarized
     fi
