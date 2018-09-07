@@ -7,10 +7,11 @@ set hidden
 " file encoding + crmode.
 set fileencoding=utf-8
 set fileencodings=utf-8,cp932,euc-jp,iso-2022-jp
-set fileformat=dos
-set fileformats=dos,unix,mac
+set fileformat=unix
+set fileformats=unix,dos,mac
 " representation characer encoding
 set encoding=utf-8
+set nobomb
 " display double byte character correctly.
 set ambiwidth=double
 " autochange current directory according to current buffer
