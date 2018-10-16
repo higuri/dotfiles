@@ -135,8 +135,11 @@ Plugin 'pbrisbin/vim-mkdir'
 Plugin 'scrooloose/nerdcommenter'
 " YankRing.vim : Maintains a history of previous yanks, changes and deletes
 Plugin 'YankRing.vim'
-" snipMate : TextMate-style snippets for Vim 
-Plugin 'msanders/snipmate.vim'
+" vim-snipmate (and dependencies) : TextMate-style snippets for Vim 
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
+Plugin 'garbas/vim-snipmate'
+Plugin 'higuri/vim-snippets'
 " camelcasemotion : Motion through CamelCaseWords and underscore_notation. 
 Plugin 'bkad/CamelCaseMotion'
 " tmux-navigator: tmux pane swithing with awareness of Vim splits.
@@ -147,8 +150,6 @@ Plugin 'romainl/vim-qf'
 Plugin 'wakatime/vim-wakatime'
 " vim-make: ':Make' runs closest Makefile.
 Plugin 'higuri/vim-make'
-" tscwatch.vim: tsc --watch in vim
-Plugin 'higuri/tscwatch.vim'
 " swift.vim: swift syntax.
 Plugin 'keith/swift.vim'
 " vim-scala: scala syntax.
@@ -177,6 +178,8 @@ if isdirectory($HOME.'/.vim/bundle/CamelCaseMotion')
 endif
 let NERDSpaceDelims = 1
 let g:yankring_history_dir = &directory
+" snipmate
+imap <C-y> <Plug>snipMateNextOrTrigger
 " fzf.vim
 nnoremap <Leader>b :Buffers<CR>
 nnoremap <Leader>c :Files .<CR>
