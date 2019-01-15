@@ -37,6 +37,7 @@ alias e='vim'
 alias o='open'
 alias r='vim -R'
 alias t='vim "+ normal Go" "+ startinsert" ~/todo.txt'
+alias g='grep -r'
 alias gt='cd ~/tmp'
 alias gg='cd $(git rev-parse --show-toplevel 2> /dev/null || hg root 2> /dev/null || echo .)'
 alias psa='ps -a'
@@ -44,9 +45,8 @@ if [[ $OSTYPE == darwin* ]]; then
     alias te='open -a TextEdit'
 fi
 
-function g { grep "$@" `find . -type f -name "*.*"` }
 function ge {
-    files=$(grep -l "$@" `find . -type f -name "*.*"`)
+    files=$(grep -r -l "$@")
     echo $files
     vim $(echo $files | paste -s -d " " -)
 }
