@@ -122,9 +122,6 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 " --- Bundles to be installed ---
-" fzf.vim: fuzzy finder in Vim
-set rtp+=~/.fzf/
-Plugin 'junegunn/fzf.vim'
 " surround.vim : Delete/change/add parentheses/quotes/XML-tags/much more with ease
 Plugin 'tpope/vim-surround'
 " matchit: extended % matching for XML, HTML.
@@ -183,10 +180,6 @@ let NERDSpaceDelims = 1
 let g:yankring_history_dir = &directory
 " snipmate
 imap <C-y> <Plug>snipMateNextOrTrigger
-" fzf.vim
-nnoremap <Leader>b :Buffers<CR>
-nnoremap <Leader>c :Files .<CR>
-nnoremap ; :Files 
 " tagbar
 nmap <F8> :TagbarToggle<CR>
 
