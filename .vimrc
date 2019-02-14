@@ -160,6 +160,9 @@ Plugin 'posva/vim-vue'
 Plugin 'altercation/vim-colors-solarized'
 " leafgarland/typescript-vim: typescript syntax.
 Plugin 'leafgarland/typescript-vim'
+" majutsushi/tagbar: tag display
+" PREREQUISITE: ctag (recommented: Universal Ctags)
+Plugin 'majutsushi/tagbar'
 call vundle#end()
 
 syntax on
@@ -184,6 +187,8 @@ imap <C-y> <Plug>snipMateNextOrTrigger
 nnoremap <Leader>b :Buffers<CR>
 nnoremap <Leader>c :Files .<CR>
 nnoremap ; :Files 
+" tagbar
+nmap <F8> :TagbarToggle<CR>
 
 "
 " FileType setting
