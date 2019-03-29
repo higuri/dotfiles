@@ -14,6 +14,8 @@ set encoding=utf-8
 set nobomb
 " display double byte character correctly.
 set ambiwidth=double
+" exclude dash from word separator.
+set iskeyword+=-
 " autochange current directory according to current buffer
 " [tips] check current dir -> :pwd 
 set autochdir
