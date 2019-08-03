@@ -34,14 +34,16 @@ alias ....='cd .. && cd .. && cd ..'
 alias a='date "+%Y/%m/%d %H:%M:%S" >> ~/log.txt && vim "+ normal Go" "+ startinsert" ~/log.txt'
 alias b='cd -'
 alias e='vim'
-alias o='open'
 alias r='vim -R'
 alias t='vim "+ normal Go" "+ startinsert" ~/todo.txt'
 alias gt='cd ~/tmp'
 alias gg='cd $(git rev-parse --show-toplevel 2> /dev/null || hg root 2> /dev/null || echo .)'
 alias psa='ps -a'
 if [[ $OSTYPE == darwin* ]]; then
+    alias o='open'
     alias te='open -a TextEdit'
+elif [[ $OSTYPE == linux-gnu ]]; then
+    alias o='xdg-open'
 fi
 
 function g {
