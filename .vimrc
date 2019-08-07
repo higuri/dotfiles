@@ -145,23 +145,16 @@ Plugin 'bkad/CamelCaseMotion'
 Plugin 'christoomey/vim-tmux-navigator'
 " vim-qf: tame the quickfix window
 Plugin 'romainl/vim-qf'
-" vim-wakatime: quantify vim usage.
-Plugin 'wakatime/vim-wakatime'
 " vim-make: ':Make' runs closest Makefile.
 Plugin 'higuri/vim-make'
 " swift.vim: swift syntax.
 Plugin 'keith/swift.vim'
-" vim-scala: scala syntax.
-Plugin 'derekwyatt/vim-scala'
 " vim-vue: Syntax Highlight for Vue.js components
 Plugin 'posva/vim-vue'
 " vim-colors-solarized: colorscheme 'solarized'
 Plugin 'altercation/vim-colors-solarized'
 " leafgarland/typescript-vim: typescript syntax.
 Plugin 'leafgarland/typescript-vim'
-" majutsushi/tagbar: tag display
-" PREREQUISITE: ctag (recommented: Universal Ctags)
-Plugin 'majutsushi/tagbar'
 call vundle#end()
 
 syntax on
@@ -179,6 +172,8 @@ if isdirectory($HOME.'/.vim/bundle/CamelCaseMotion')
     call camelcasemotion#CreateMotionMappings('<Leader>')
 endif
 let NERDSpaceDelims = 1
+" use '//' instead of '/* */'
+let g:NERDAltDelims_swift = 1
 let g:yankring_history_dir = &directory
 " snipmate
 imap <C-y> <Plug>snipMateNextOrTrigger
@@ -198,7 +193,6 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 autocmd FileType * setlocal tabstop=4 softtabstop=4 shiftwidth=4
 autocmd FileType xml,html,css,scss,json setlocal tabstop=2 softtabstop=2 shiftwidth=2
 autocmd FileType javascript,typescript,vue setlocal tabstop=2 softtabstop=2 shiftwidth=2
-autocmd FileType swift setlocal tabstop=2 softtabstop=2 shiftwidth=2
 " <Leader>r FIXME
 autocmd FileType c,cpp nnoremap <Leader>r :execute '!gcc % && ./a.out'<CR>
 autocmd FileType javascript nnoremap <Leader>r :execute '!node %'<CR>
