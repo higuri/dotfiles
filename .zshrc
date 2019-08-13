@@ -74,6 +74,11 @@ bindkey -e
 bindkey "^P" history-beginning-search-backward
 bindkey "^N" history-beginning-search-forward
 
+# source device specific config (not under source control)
+if [ -f ~/.zshrc_local ]; then
+    source ~/.zshrc_local
+fi
+
 if [[ -z "$TMUX" ]]; then
     tmux
 fi
