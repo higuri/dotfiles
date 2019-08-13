@@ -1,0 +1,6 @@
+[include]
+    path = ~/.gitconfig_local
+[alias]
+	st = status
+	stat = status
+	vimdiff = difftool --tool=vimdiff --no-prompt
