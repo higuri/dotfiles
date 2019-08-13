@@ -198,3 +198,9 @@ autocmd FileType c,cpp nnoremap <Leader>r :execute '!gcc % && ./a.out'<CR>
 autocmd FileType javascript nnoremap <Leader>r :execute '!node %'<CR>
 autocmd FileType typescript nnoremap <Leader>r :execute '!tsc % && node %:r.js'<CR>
 autocmd FileType vue syntax sync fromstart
+
+" include device specific config (not under source control)
+let $vimrc_local = $HOME . '/.vimrc_local'
+if filereadable($vimrc_local)
+    source $vimrc_local
+endif
