@@ -27,6 +27,12 @@ setopt no_flow_control
 setopt interactive_comments
 setopt print_eight_bit
 
+# tmpdir
+TMPDIR=$HOME/tmp
+if [ ! -d $TMPDIR ]; then
+    mkdir $TMPDIR
+fi
+
 # Define aliases and functions
 alias ..='cd ..'
 alias ...='cd .. && cd ..'
@@ -36,7 +42,7 @@ alias b='cd -'
 alias e='vim'
 alias r='vim -R'
 alias t='vim "+ normal Go" "+ startinsert" ~/todo.txt'
-alias gt='cd ~/tmp'
+alias gt='cd $TMPDIR'
 alias gg='cd $(git rev-parse --show-toplevel 2> /dev/null || hg root 2> /dev/null || echo .)'
 alias psa='ps -a'
 if [[ $OSTYPE == darwin* ]]; then
@@ -53,6 +59,12 @@ function ge {
     files=$(grep -r -l "$@" .)
     echo $files
     vim $(echo $files | paste -s -d " " -)
+}
+function cpt {
+    cp $@ $TMPDIR
+}
+function mvt {
+    mv $@ $TMPDIR
 }
 if [[ $OSTYPE == darwin* ]]; then
     function lsa { command ls -ltrAFG "$@" }
