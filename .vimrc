@@ -149,6 +149,8 @@ Plugin 'romainl/vim-qf'
 Plugin 'higuri/vim-make'
 " swift.vim: swift syntax.
 Plugin 'keith/swift.vim'
+" kotlin-vim: kotlin syntax.
+Plugin 'udalov/kotlin-vim'
 " vim-vue: Syntax Highlight for Vue.js components
 Plugin 'posva/vim-vue'
 " vim-colors-solarized: colorscheme 'solarized'
