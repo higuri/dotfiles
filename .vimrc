@@ -17,7 +17,7 @@ set ambiwidth=double
 " exclude dash from word separator.
 set iskeyword+=-
 " autochange current directory according to current buffer
-" [tips] check current dir -> :pwd 
+" [tips] check current dir -> :pwd
 set autochdir
 " location of swap & backup files.
 set directory=~/.vimdir
@@ -39,7 +39,7 @@ set statusline=%F%m%=\ %r%h%w%y%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}[LEN=%L
 
 " show line number
 set number
-" show cmd being entered 
+" show cmd being entered
 set showcmd
 " highlight searched word
 set hlsearch
@@ -64,9 +64,9 @@ set clipboard=unnamed
 " Set map special character. After this line, <Leader> means ','
 let mapleader=','
 
-nmap <Leader>g <Esc>:vimgrep 
-nnoremap <Leader>n :new 
-nnoremap <Leader>v :vnew 
+nmap <Leader>g <Esc>:vimgrep
+nnoremap <Leader>n :new
+nnoremap <Leader>v :vnew
 nnoremap <Leader>x :bd<CR>
 nnoremap <Leader>r :execute '!'.&ft.' %'<CR>
 " correct indent pasted character right before
@@ -88,11 +88,11 @@ cnoremap <C-w> <C-c><C-w>
 " change buffer
 nnoremap zj :bn<CR>
 nnoremap zk :bp<CR>
-nnoremap zz :buffer 
+nnoremap zz :buffer
 " visual-select search in file
 vnoremap * y/<C-r>"<CR>
 " visual-select vim-grep ( -> cw[ref: autocmd QuickfixCmdPost] )
-vnoremap gg y<Esc>:vimgrep /<C-r>"/j 
+vnoremap gg y<Esc>:vimgrep /<C-r>"/j
 vnoremap gf y<Esc>:vimgrep /<C-r>"/j %<CR>
 vnoremap gd y<Esc>:vimgrep /<C-r>"/j **/*<CR>
 
@@ -106,7 +106,7 @@ cnoremap <C-N> <Down>
 cnoremap <C-P> <Up>
 " Paste at command mode
 " [tips] default keymaps
-"   <C-u> delete line 
+"   <C-u> delete line
 "   <C-h> back space
 cnoremap <C-v> <C-r>"
 
@@ -130,16 +130,16 @@ Plugin 'tpope/vim-surround'
 Plugin 'tmhedberg/matchit'
 " vim-mkdir:  Automatically create any non-existent directories.
 Plugin 'pbrisbin/vim-mkdir'
-" The NERD Commenter : A plugin that allows for easy commenting of code for many filetypes. 
+" The NERD Commenter : A plugin that allows for easy commenting of code for many filetypes.
 Plugin 'scrooloose/nerdcommenter'
 " YankRing.vim : Maintains a history of previous yanks, changes and deletes
 Plugin 'YankRing.vim'
-" vim-snipmate (and dependencies) : TextMate-style snippets for Vim 
+" vim-snipmate (and dependencies) : TextMate-style snippets for Vim
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
 Plugin 'garbas/vim-snipmate'
 Plugin 'higuri/vim-snippets'
-" camelcasemotion : Motion through CamelCaseWords and underscore_notation. 
+" camelcasemotion : Motion through CamelCaseWords and underscore_notation.
 Plugin 'bkad/CamelCaseMotion'
 " tmux-navigator: tmux pane swithing with awareness of Vim splits.
 Plugin 'christoomey/vim-tmux-navigator'
@@ -200,6 +200,18 @@ autocmd FileType c,cpp nnoremap <Leader>r :execute '!gcc % && ./a.out'<CR>
 autocmd FileType javascript nnoremap <Leader>r :execute '!node %'<CR>
 autocmd FileType typescript nnoremap <Leader>r :execute '!tsc % && node %:r.js'<CR>
 autocmd FileType vue syntax sync fromstart
+" keep whitespace in empty lines (same as xcode default behavior)
+autocmd FileType swift nnoremap o o.<BS>
+autocmd FileType swift nnoremap O O.<BS>
+autocmd FileType swift inoremap <CR> <CR>.<BS>
+" highlight trailing whitespace
+" https://vim.fandom.com/wiki/Highlight_unwanted_spaces
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
+autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+autocmd BufWinLeave * call clearmatches()
 
 " include device specific config (not under source control)
 let $vimrc_local = $HOME . '/.vimrc_local'

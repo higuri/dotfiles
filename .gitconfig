@@ -5,3 +5,5 @@
 	st = status
 	stat = status
 	vimdiff = difftool --tool=vimdiff --no-prompt
+[diff]
+	wsErrorHighlight = all
