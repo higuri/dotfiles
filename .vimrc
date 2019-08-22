@@ -16,6 +16,9 @@ set nobomb
 set ambiwidth=double
 " exclude dash from word separator.
 set iskeyword+=-
+" fold: zm/zM,zr/zR
+set foldmethod=indent
+set foldlevel=1000
 " autochange current directory according to current buffer
 " [tips] check current dir -> :pwd
 set autochdir
@@ -86,9 +89,9 @@ nnoremap cyl c$<C-r>0<ESC>:let@/=@1<CR>:noh<CR>
 inoremap <C-w> <Esc><C-w>
 cnoremap <C-w> <C-c><C-w>
 " change buffer
-nnoremap zj :bn<CR>
-nnoremap zk :bp<CR>
-nnoremap zz :buffer
+nnoremap bj :bn<CR>
+nnoremap bk :bp<CR>
+nnoremap bb :buffer 
 " visual-select search in file
 vnoremap * y/<C-r>"<CR>
 " visual-select vim-grep ( -> cw[ref: autocmd QuickfixCmdPost] )
@@ -139,9 +142,6 @@ Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
 Plugin 'garbas/vim-snipmate'
 Plugin 'higuri/vim-snippets'
-" tagbar: code structure viewer
-" required: apt install ctags / brew install ctags
-Plugin 'majutsushi/tagbar'
 " camelcasemotion : Motion through CamelCaseWords and underscore_notation.
 Plugin 'bkad/CamelCaseMotion'
 " tmux-navigator: tmux pane swithing with awareness of Vim splits.
@@ -182,8 +182,6 @@ let g:NERDAltDelims_swift = 1
 let g:yankring_history_dir = &directory
 " snipmate
 imap <C-y> <Plug>snipMateNextOrTrigger
-" tagbar
-nmap <F8> :TagbarToggle<CR>
 
 "
 " FileType setting
