@@ -139,6 +139,9 @@ Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
 Plugin 'garbas/vim-snipmate'
 Plugin 'higuri/vim-snippets'
+" tagbar: code structure viewer
+" required: apt install ctags / brew install ctags
+Plugin 'majutsushi/tagbar'
 " camelcasemotion : Motion through CamelCaseWords and underscore_notation.
 Plugin 'bkad/CamelCaseMotion'
 " tmux-navigator: tmux pane swithing with awareness of Vim splits.
