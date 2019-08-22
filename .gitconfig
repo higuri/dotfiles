@@ -7,3 +7,5 @@
 	vimdiff = difftool --tool=vimdiff --no-prompt
 [diff]
 	wsErrorHighlight = all
+[push]
+	default = nothing
