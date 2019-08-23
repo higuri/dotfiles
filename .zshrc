@@ -66,6 +66,9 @@ function cpt {
 function mvt {
     mv $@ $TMPDIR
 }
+function gitwt {
+    git worktree add -b "$1" "./git-worktrees/$1"
+}
 if [[ $OSTYPE == darwin* ]]; then
     function lsa { command ls -ltrAFG "$@" }
     # abbreviated version of dircolors-solarized.
