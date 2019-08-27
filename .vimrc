@@ -12,6 +12,8 @@ set fileformats=unix,dos,mac
 " representation characer encoding
 set encoding=utf-8
 set nobomb
+" prevent unintended changes ("No newline at end of file" in git).
+set nofixendofline
 " display double byte character correctly.
 set ambiwidth=double
 " exclude dash from word separator.
@@ -91,7 +93,7 @@ cnoremap <C-w> <C-c><C-w>
 " change buffer
 nnoremap bj :bn<CR>
 nnoremap bk :bp<CR>
-nnoremap bb :buffer 
+nnoremap bb :buffer
 " visual-select search in file
 vnoremap * y/<C-r>"<CR>
 " visual-select vim-grep ( -> cw[ref: autocmd QuickfixCmdPost] )

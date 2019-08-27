@@ -67,7 +67,8 @@ function mvt {
     mv $@ $TMPDIR
 }
 function gitwt {
-    git worktree add -b "$1" "./git-worktrees/$1"
+    GIT_ROOT_DIR=`git rev-parse --show-toplevel`
+    git worktree add -b "$1" "${GIT_ROOT_DIR}/git-worktrees/$1"
 }
 if [[ $OSTYPE == darwin* ]]; then
     function lsa { command ls -ltrAFG "$@" }
