@@ -66,10 +66,6 @@ function cpt {
 function mvt {
     mv $@ $TMPDIR
 }
-function gitwt {
-    GIT_ROOT_DIR=`git rev-parse --show-toplevel`
-    git worktree add -b "$1" "${GIT_ROOT_DIR}/git-worktrees/$1"
-}
 if [[ $OSTYPE == darwin* ]]; then
     function lsa { command ls -ltrAFG "$@" }
     # abbreviated version of dircolors-solarized.
@@ -83,6 +79,43 @@ else
     eval `dircolors ~/dircolors-solarized/dircolors.256dark`
 fi
 alias l='lsa'
+
+# git related commands:
+export GIT_WORKTREE_NAME=git-worktree
+# add new git-worktree with new branch
+function gitaw {
+    GIT_ROOT_DIR=`git rev-parse --show-toplevel`
+    echo "git worktree add -b $1 ${GIT_ROOT_DIR}/${GIT_WORKTREE_NAME}/$1"
+    git worktree add -b "$1" "${GIT_ROOT_DIR}/${GIT_WORKTREE_NAME}/$1"
+}
+# list git-worktrees
+function gitlw {
+    echo "git worktree list"
+    git worktree list
+}
+# change directory to the specified git-worktreee
+function gitcw {
+    GIT_ROOT_DIR=`git rev-parse --show-toplevel`
+    echo "cd ${GIT_ROOT_DIR}/${GIT_WORKTREE_NAME}/$1"
+    cd "${GIT_ROOT_DIR}/${GIT_WORKTREE_NAME}/$1"
+    echo "git branch"
+    git branch
+}
+# remove git-worktree and branch if fully merged
+function gitrw {
+    if [[ $(git branch --merged | grep "$1") ]]; then
+        echo "git worktree remove $1"
+        git worktree remove "$1"
+        echo "git branch -d $1"
+        git branch -d "$1"
+    else
+        echo "$1 is not fully merged."
+    fi
+}
+# `gitaw` and `gitcw`
+function gitacw {
+    gitaw "$1" && gitcw "$1"
+}
 
 # emacs-like keybind
 bindkey -e
