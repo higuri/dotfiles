@@ -128,6 +128,26 @@ if [ -f ~/.zshrc_local ]; then
     source ~/.zshrc_local
 fi
 
+# zplug
+# [mac] brew install zplug
+# [linux] curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
+source ~/.zplug/init.zsh
+zplug 'zplug/zplug', hook-build:'zplug --self-manage'
+# syntax-highlighting
+zplug "zsh-users/zsh-syntax-highlighting"
+# completions
+zplug "zsh-users/zsh-autosuggestions"
+zplug "zsh-users/zsh-completions"
+# install plugins if there are plugins that have not been installed
+if ! zplug check --verbose; then
+#  printf "Install? [y/N]: "
+#  if read -q; then
+    echo; zplug install
+#  fi
+fi
+# then, source plugins and add commands to $PATH
+zplug load
+
 # launch tmux
 if [[ -z "$TMUX" ]]; then
     tmux
