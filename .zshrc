@@ -129,11 +129,10 @@ bindkey "^N" history-beginning-search-forward
 # install: curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
 source ~/.zplug/init.zsh
 zplug 'zplug/zplug', hook-build:'zplug --self-manage'
-# syntax-highlighting
 zplug "zsh-users/zsh-syntax-highlighting"
-# completions
 zplug "zsh-users/zsh-autosuggestions"
 zplug "zsh-users/zsh-completions"
+zplug "mollifier/cd-gitroot"
 # install plugins if there are plugins that have not been installed
 if ! zplug check --verbose; then
 #  printf "Install? [y/N]: "
@@ -143,7 +142,12 @@ if ! zplug check --verbose; then
 fi
 # then, source plugins and add commands to $PATH
 zplug load
-# custom key binding
+
+# zplugin configuration
+# - cd-gitroot
+alias gr='cd-gitroot'
+# - zsh-autosuggestions
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#666666"
 
 # include device specific config (not under source control)
 if [ -f ~/.zshrc_local ]; then
