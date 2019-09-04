@@ -81,7 +81,7 @@ fi
 alias l='lsa'
 
 # git related commands:
-export GIT_WORKTREE_NAME=git-worktree
+export GIT_WORKTREE_NAME=git-worktrees
 # add new git-worktree with new branch
 function gitaw {
     GIT_ROOT_DIR=`git rev-parse --show-toplevel`
@@ -129,8 +129,7 @@ if [ -f ~/.zshrc_local ]; then
 fi
 
 # zplug
-# [mac] brew install zplug
-# [linux] curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
+# install: curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
 source ~/.zplug/init.zsh
 zplug 'zplug/zplug', hook-build:'zplug --self-manage'
 # syntax-highlighting
