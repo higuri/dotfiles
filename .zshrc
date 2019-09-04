@@ -117,16 +117,13 @@ function gitacw {
     gitaw "$1" && gitcw "$1"
 }
 
-# emacs-like keybind
-bindkey -e
+# emacs-like keybind (<: ^a / >: ^e)
+ bindkey -e
+# vi-like keybind
+#bindkey -v
 # history completion with Ctrl-P/N
 bindkey "^P" history-beginning-search-backward
 bindkey "^N" history-beginning-search-forward
-
-# include device specific config (not under source control)
-if [ -f ~/.zshrc_local ]; then
-    source ~/.zshrc_local
-fi
 
 # zplug
 # install: curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
@@ -146,6 +143,12 @@ if ! zplug check --verbose; then
 fi
 # then, source plugins and add commands to $PATH
 zplug load
+# custom key binding
+
+# include device specific config (not under source control)
+if [ -f ~/.zshrc_local ]; then
+    source ~/.zshrc_local
+fi
 
 # launch tmux
 if [[ -z "$TMUX" ]]; then
