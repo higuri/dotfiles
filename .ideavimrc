@@ -1,0 +1,52 @@
+set incsearch
+set ignorecase
+set smartcase
+set hlsearch
+set visualbell
+set noerrorbells
+set surround
+set number
+set ideajoin
+set clipboard=unnamed
+set clipboard+=ideaput
+
+set keep-english-in-normal
+
+" nnoremap gg :action SearchEverywhere<CR>
+nnoremap gf :action GotoFile<CR>
+nnoremap gc :action GotoClass<CR>
+nnoremap gs :action GotoSymbol<CR>
+nnoremap ga :action GotoAction<CR>
+nnoremap gu :action ShowUsages<CR>
+nnoremap gU :action FindUsages<CR>
+
+let mapleader = ","
+
+nnoremap % :action EditorMatchBrace<CR>
+nnoremap <C-o> :<C-u>action Back<CR>
+nnoremap <C-i> :<C-u>action Forward<CR>
+nnoremap <C-S-o> :<C-u>action JumpToLastChange<CR>
+nnoremap <C-S-i> :<C-u>action JumpToNextChange<CR>
+
+nnoremap <C-h> :<C-u>action VcsShowNextChangeMarker<CR>
+nnoremap <C-S-h> :<C-u>action VcsShowPrevChangeMarker<CR>
+
+nnoremap <C-m> :<C-u>action MethodDown<CR>
+nnoremap <C-S-m> :<C-u>action MethodUp<CR>
+
+" See :actionlist
+nnoremap <Leader>r :action Run<CR>
+nnoremap <Leader>d :action Debug<CR>
+nnoremap <Leader>. :action Stop<CR>
+nnoremap <Leader>b :action Build<CR>
+nnoremap <Leader>a :action Annotate<CR>
+
+" <C-w><C-s>
+nnoremap <Leader>v :vsplit<CR>
+" <C-w><C-v>
+nnoremap <Leader>h :split<CR>
+" <C-w><C-c>
+nnoremap <Leader>c :close<CR>
+nnoremap <Leader>x :close<CR>
+
+nnoremap <Leader>n :action NewScratchFile<CR>

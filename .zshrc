@@ -155,6 +155,6 @@ if [ -f ~/.zshrc_local ]; then
 fi
 
 # launch tmux
-if [[ -z "$TMUX" ]]; then
-    tmux
-fi
+#if [[ -z "$TMUX" ]]; then
+#    tmux
+#fi
