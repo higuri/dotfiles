@@ -140,6 +140,7 @@ Plugin 'scrooloose/nerdcommenter'
 " YankRing.vim : Maintains a history of previous yanks, changes and deletes
 Plugin 'YankRing.vim'
 " vim-snipmate (and dependencies) : TextMate-style snippets for Vim
+let g:snipMate = { 'snippet_version' : 1 }
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
 Plugin 'garbas/vim-snipmate'

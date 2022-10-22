@@ -15,14 +15,18 @@ if [ $# -eq 0 ] || [ $1 != "-f" ]; then
     if [ -f .tmux.conf ]; then
         mv .tmux.conf ".tmux.conf~$(date +%Y%m%d)"
     fi
+    if [ -f .ideavimrc ]; then
+        mv .ideavimrc ".ideavimrc~$(date +%Y%m%d)"
+    fi
     popd > /dev/null
 fi
 
 # Install (Create symlinks).
 ln -sf ~/dotfiles/.zshrc ~/.zshrc
-ln -sf ~/dotfiles/.vimrc ~/.vimrc 
-ln -sf ~/dotfiles/.gitconfig ~/.gitconfig 
-ln -sf ~/dotfiles/.tmux.conf ~/.tmux.conf 
+ln -sf ~/dotfiles/.vimrc ~/.vimrc
+ln -sf ~/dotfiles/.gitconfig ~/.gitconfig
+ln -sf ~/dotfiles/.tmux.conf ~/.tmux.conf
+ln -sf ~/dotfiles/.ideavimrc ~/.ideavimrc
 
 # Load
 source ./load.sh
