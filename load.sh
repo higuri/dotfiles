@@ -9,4 +9,4 @@ vim +PluginInstall +qall
 
 # [*sh]
 # TODO
-echo "Done! You should run 'source .zshrc' or re-login to shell."
+echo "Done! You should run 'source .bashrc' or re-login to shell."
